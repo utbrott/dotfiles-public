@@ -35,8 +35,9 @@ keymap("n", "<C-Right>", "<cmd>bnext<CR>")
 -- Bufferline navigation
 keymap("n", "<leader>`", "<cmd>e #<CR>") -- Switch to other buffer
 keymap("n", "<C-w>", "<cmd>bd!<CR>") -- Delete buffer
-keymap("n", "<leader>bj", "<cmd>BufferLineCycleNext<CR>")
-keymap("n", "<leader>bk", "<cmd>BufferLineCyclePrev<CR>")
+keymap("n", "<leader>te", "<cmd>tabedit<CR>", { silent = true })
+keymap("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>")
+keymap("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>")
 
 -- Move lines
 keymap("n", "<A-j>", ":m .+1<CR>==")
