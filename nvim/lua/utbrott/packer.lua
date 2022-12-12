@@ -9,9 +9,7 @@ vim.cmd([[packadd packer.nvim]])
 return packer.startup(function(use)
   use("wbthomason/packer.nvim")
   use("folke/tokyonight.nvim")
-  use("olimorris/onedarkpro.nvim")
   use("rebelot/kanagawa.nvim")
-  use("projekt0n/github-nvim-theme")
   use({
     "nvim-telescope/telescope.nvim",
     requires = "nvim-lua/plenary.nvim",
