@@ -1,22 +1,14 @@
 --- @usage "tokyonight" | "kanagawa" | "onedark" | "github_dark_default"
-local colorscheme = "onedark"
+local colorscheme = "github_dark_default"
 
 local ok_tokyonight, tokyonight = pcall(require, "tokyonight")
-if not ok_tokyonight then
-  return
-end
+if not ok_tokyonight then return end
 local ok_kanagawa, kanagawa = pcall(require, "kanagawa")
-if not ok_kanagawa then
-  return
-end
+if not ok_kanagawa then return end
 local ok_github, github = pcall(require, "github-theme")
-if not ok_github then
-  return
-end
+if not ok_github then return end
 local ok_onedark, onedark = pcall(require, "onedarkpro")
-if not ok_onedark then
-  return
-end
+if not ok_onedark then return end
 
 tokyonight.setup({
   style = "night",
