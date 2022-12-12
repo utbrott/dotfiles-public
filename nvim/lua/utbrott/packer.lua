@@ -32,7 +32,7 @@ return packer.startup(function(use)
   use("williamboman/mason-lspconfig.nvim")
   use("onsails/lspkind.nvim") -- LSP Icons
   use("glepnir/lspsaga.nvim") -- LSP UIs
-  -- use("folke/trouble.nvim") -- Diagnostics display in tab
+  use("folke/trouble.nvim") -- Diagnostics display in tab
   use("hrsh7th/nvim-cmp") -- Autocomplete engine
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-nvim-lsp")
