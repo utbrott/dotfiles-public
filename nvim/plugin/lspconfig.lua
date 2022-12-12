@@ -11,18 +11,14 @@ local enable_format_on_save = function(_, bufnr)
   vim.api.nvim_create_autocmd("BufWritePre", {
     group = augroup_format,
     buffer = bufnr,
-    callback = function()
-      vim.lsp.buf.format({ bufnr = bufnr })
-    end,
+    callback = function() vim.lsp.buf.format({ bufnr = bufnr }) end,
   })
 end
 
 -- Use on_attach function to only map listed keys
 -- after the language server attaches to current buffer
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
   -- Mappings
   local opts = { noremap = true, silent = true }
@@ -36,7 +32,6 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 nvim_lsp.tsserver.setup({
   on_attach = on_attach,
-  filetypes = { "typescript", "typesciptreact", "typescript.tsx" },
   capabilities = capabilities,
 })
 
