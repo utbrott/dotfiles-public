@@ -1,0 +1,34 @@
+# Get editor completions based on the config schema
+"$schema" = "https://starship.rs/config-schema.json"
+
+format = """
+$character \
+$directory \
+$git_branch \
+"""
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+[line_break]
+disabled = true
+
+# Replace the exit symbol symbol
+[character] # The name of the module we are configuring is "character"
+format = "$symbol"
+success_symbol = "[\uea9f](bold bright-green)" # 
+error_symbol = "[\uea9f](bold bright-red)" # 
+
+# Directory
+[directory]
+format = "[$path](bold bright-cyan)[$read_only]($read_only_style)"
+truncation_length = 100
+truncate_to_repo = false
+
+# Git
+[git_branch]
+format = "[[git:\\(](bold bright-blue)$branch[\\)](bold bright-blue)](bold bright-red)"
+
+# Disable command duration
+[cmd_duration]
+disabled = true
