@@ -10,6 +10,7 @@ return packer.startup(function(use)
   use("wbthomason/packer.nvim")
   use("folke/tokyonight.nvim")
   use("rebelot/kanagawa.nvim")
+  use("navarasu/onedark.nvim")
   use({
     "nvim-telescope/telescope.nvim",
     requires = "nvim-lua/plenary.nvim",
