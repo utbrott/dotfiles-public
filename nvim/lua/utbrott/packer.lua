@@ -8,11 +8,14 @@ vim.cmd([[packadd packer.nvim]])
 
 return packer.startup(function(use)
   use("wbthomason/packer.nvim")
-  use({ "folke/tokyonight.nvim", opt = true })
-  use({ "rebeblot/kanagawa.nvim", opt = true })
-  use({ "navarasu/onedark.nvim", opt = true })
-  use({ "Shatur/neovim-ayu", opt = true })
-  use({ "RRethy/nvim-base16", opt = true })
+  -- Some colorschemes
+  use("folke/tokyonight.nvim")
+  use("rebelot/kanagawa.nvim")
+  use("navarasu/onedark.nvim")
+  use("Shatur/neovim-ayu")
+  use("wincent/base16-nvim")
+  use("Mofiqul/vscode.nvim")
+  use("cocopon/iceberg.vim")
   use({
     "nvim-telescope/telescope.nvim",
     tag = "0.1.0",
