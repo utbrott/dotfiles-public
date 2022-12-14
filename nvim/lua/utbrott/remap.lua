@@ -11,6 +11,10 @@ keymap("n", "x", '"_x')
 -- Select all
 keymap("n", "<C-a>", "ggVG")
 
+-- File explorer
+keymap("n", "<C-Bslash>", function()
+  require("nvim-tree").toggle(true)
+end, { silent = true })
 -- Create & delete windows
 keymap("n", "<leader>ws", "<C-w>s", { silent = true })
 keymap("n", "<leader>wv", "<C-w>v", { silent = true })
