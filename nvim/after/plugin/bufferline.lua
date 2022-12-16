@@ -1,12 +1,22 @@
-local ok, bufferline = pcall(require, "bufferline")
-if not ok then return end
+local status, bufferline = pcall(require, "bufferline")
+if not status then return end
 
 bufferline.setup({
   options = {
-    mode = "tabs",
-    always_show_bufferline = false,
-    show_buffer_close_icon = false,
-    show_close_icon = false,
-    color_icons = true,
+    numbers = "none",
+    close_command = "Bdelete! %d",
+    right_mouse_command = "Bdelete! %d", -- Right click to close
+    left_trunc_marker = "",
+    right_truc_marker = "",
+    max_name_length = 30,
+    tab_size = vim.o.columns / 8, -- 8 tabs from all the available columns
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = "EXPLORER",
+        text_align = "left",
+        separator = true,
+      },
+    },
   },
 })

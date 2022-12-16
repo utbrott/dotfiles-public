@@ -1,31 +1,30 @@
 local status, nvim_tree = pcall(require, "nvim-tree")
-if not status then
-  return
-end
+if not status then return end
 
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
 nvim_tree.setup({
   view = {
+    hide_root_folder = true,
     side = "right",
-    width = 36,
+    width = 40,
     mappings = {
       list = {
         { key = { "n" }, cb = tree_cb("create") },
         { key = { "r" }, cb = tree_cb("full_rename") },
-        { key = { "<" }, cb = tree_cb("dir_up") },
-        { key = { "<C-r>" }, cb = tree_cb("refresh") },
+        { key = { "v" }, cb = tree_cb("vsplit") },
       },
     },
   },
   renderer = {
     icons = {
+      git_placement = "before",
       glyphs = {
         default = "",
         symlink = "",
         git = {
-          unstaged = "",
-          staged = "",
+          unstaged = "U",
+          staged = "s",
           unmerged = "",
           renamed = "",
           untracked = "?",
@@ -33,12 +32,12 @@ nvim_tree.setup({
           ignored = "",
         },
         folder = {
-          default = "",
-          open = "",
-          empty = "",
-          empty_open = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
           symlink = "",
-          symlink_open = "",
+          symlink_open = "",
         },
       },
     },
@@ -50,10 +49,8 @@ nvim_tree.setup({
       max = vim.diagnostic.severity.ERROR,
     },
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      warning = "",
+      error = "",
     },
   },
 })

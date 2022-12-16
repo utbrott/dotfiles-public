@@ -1,5 +1,5 @@
 -- Select the colorscheme
-local colorscheme = "iceberg"
+local colorscheme = "github_dimmed"
 
 require("tokyonight").setup({
   style = "night",
@@ -10,10 +10,9 @@ require("kanagawa").setup({
   globalStatus = true,
 })
 
-require("onedark").setup({})
-
-require("ayu").setup({
-  mirage = true,
+require("github-theme").setup({
+  dark_float = true,
+  sidebars = { "qf", "vista_kind", "terminal", "packer" },
 })
 
 -- Set colorscheme

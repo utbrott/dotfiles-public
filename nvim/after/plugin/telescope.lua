@@ -14,9 +14,7 @@ telescope.setup({
     mappings = {
       n = {
         ["q"] = actions.close,
-        ["/"] = function()
-          vim.cmd("startinsert")
-        end,
+        ["/"] = function() vim.cmd("startinsert") end,
       },
       i = {
         ["<C-j>"] = actions.move_selection_next,
@@ -31,4 +29,9 @@ local opts = { silent = true }
 map("n", "\\\\", builtin.buffers, opts)
 map("n", "<leader>fh", builtin.help_tags, opts)
 map("n", "<leader>fs", builtin.live_grep, opts)
-map("n", "<leader>ff", function() builtin.find_files({ no_ignore = false, hidden = true }) end, opts)
+--[[ map(
+  "n",
+  "<leader>ff",
+  function() builtin.find_files({ no_ignore = false, hidden = true }) end,
+  opts
+) ]]

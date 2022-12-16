@@ -1,4 +1,11 @@
 ---@diagnostic disable: missing-parameter
+local status, whichkey = pcall(require, "which-key")
+if not status then return end
+
+whichkey.setup({
+  show_help = false,
+  triggers = "auto",
+})
 
 local keymap = vim.keymap.set
 
@@ -12,9 +19,7 @@ keymap("n", "x", '"_x')
 keymap("n", "<C-a>", "ggVG")
 
 -- File explorer
-keymap("n", "<C-Bslash>", function()
-  require("nvim-tree").toggle(true)
-end, { silent = true })
+keymap("n", "<C-Bslash>", "<cmd>NvimTreeToggle<CR>", { silent = true })
 -- Create & delete windows
 keymap("n", "<leader>ws", "<C-w>s", { silent = true })
 keymap("n", "<leader>wv", "<C-w>v", { silent = true })
@@ -33,15 +38,9 @@ keymap("n", "<S-Left>", "<cmd>vertical resize -5<CR>")
 keymap("n", "<S-Right>", "<cmd>vertical resize +5<CR>")
 
 -- Switch open buffers (not bufferline) with <ctrl> arrows
-keymap("n", "<C-Left>", "<cmd>bprevious<CR>")
-keymap("n", "<C-Right>", "<cmd>bnext<CR>")
-
--- Bufferline navigation
-keymap("n", "<leader>`", "<cmd>e #<CR>") -- Switch to other buffer
-keymap("n", "<C-w>", "<cmd>bd!<CR>") -- Delete buffer
-keymap("n", "<leader>te", "<cmd>tabedit<CR>", { silent = true })
-keymap("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>")
-keymap("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>")
+keymap("n", "<S-h>", "<cmd>bprevious<CR>")
+keymap("n", "<S-l>", "<cmd>bnext<CR>")
+keymap("n", "<C-w>", "<cmd>Bdelete!<CR>", { silent = true })
 
 -- Move lines
 keymap("n", "<A-j>", ":m .+1<CR>==")
@@ -68,13 +67,32 @@ keymap("x", "N", "'nN'[v:searchforward]", { expr = true })
 keymap("o", "N", "'nN'[v:searchforward]", { expr = true })
 
 -- Save with <C-s>
-keymap("n", "<C-s>", "<cmd>up!<CR>", { silent = true })
-keymap({ "i", "x" }, "<C-s>", "<cmd>up!<CR>", { silent = true })
+keymap({ "n", "i", "x" }, "<C-s>", "<Esc><cmd>up!<CR>", { silent = true })
 
 -- Better indenting
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
--- Universal comments with <C-/> (<leader>/)
-keymap("n", "<leader>/", "<cmd>norm gcc<CR>")
-keymap("x", "<leader>/", "<cmd>norm gbgv<CR>")
+-- Universal comments with <C-/>
+keymap("n", "<C-/>", "<cmd>norm gcc<CR>")
+keymap("x", "<C-/>", "<cmd>norm gbgv<CR>")
+keymap("n", "<leader>/", "<cmd>norm gcc<CR>") -- Windows fallback to <leader>/
+keymap("x", "<leader>/", "<cmd>norm gbgv<CR>") -- Windows fallback to <leader>/
+
+-- mappings with <leader>
+local leader = {
+  q = { "<cmd>q!<cr>", "force-quit" },
+  f = {
+    name = "+files",
+    f = {
+      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false}))<cr>",
+      "find-files",
+    },
+    b = {
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+      "find-buffers",
+    },
+  },
+}
+
+whichkey.register(leader, { prefix = "<leader>" })
