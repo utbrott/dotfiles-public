@@ -11,7 +11,7 @@
 # Note that some xterm terminfo databases don't declare support for italics.
 # You can verify this by checking for the presence of `smso` and `sitm` in
 # `infocmp xterm-256color`.
-# TERM: xterm-256color
+TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -98,7 +98,7 @@ font:
 
 
   # Point size of the font
-  size: 10.5
+  size: 11
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -120,44 +120,35 @@ draw_bold_text_with_bright_colors: true
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: true
 
-# OneDarkPro Alacritty Colors
+# Colors (Iceberg Dark)
 colors:
   # Default colors
   primary:
-    background: '0x282c34'
-    foreground: '0xabb2bf'
-
-  # Selection colors
-  selection:
-    text: CellForeground
-    background: '0x3e4452'
-
-  cursor:
-    text: CellBackground
-    cursor: CellForeground # syntax-cursor-color
+    background: '#161821'
+    foreground: '#d2d4de'
 
   # Normal colors
   normal:
-    black: '0x282c34'
-    red: '0xe06c75'
-    green: '0x98c379'
-    yellow: '0xe5c07b'
-    blue: '0x61afef'
-    magenta: '0xc678dd'
-    cyan: '0x56b6c2'
-    white: '0xabb2bf'
+    black:   '#161821'
+    red:     '#e27878'
+    green:   '#b4be82'
+    yellow:  '#e2a478'
+    blue:    '#84a0c6'
+    magenta: '#a093c7'
+    cyan:    '#89b8c2'
+    white:   '#c6c8d1'
 
   # Bright colors
   bright:
-    black: '0x3f3f3f'
-    red: '0xe06c75'
-    green: '0x98c379'
-    yellow: '0xe5c07b'
-    blue: '0x61afef'
-    magenta: '0xc678dd'
-    cyan: '0x56b6c2'
-    white: '0xbfc5ce'
-
+    black:   '#6b7089'
+    red:     '#e98989'
+    green:   '#c0ca8e'
+    yellow:  '#e9b189'
+    blue:    '#91acd1'
+    magenta: '#ada0d3'
+    cyan:    '#95c4ce'
+    white:   '#d2d4de'
+    
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
@@ -448,7 +439,6 @@ debug:
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
 shell:
-  program: "C:\\Windows\\system32\\wsl.exe -d Ubuntu"
-  args:
-    - --cd ~
+  program: "pwsh -wd ~"
+
 # vim: nospell
