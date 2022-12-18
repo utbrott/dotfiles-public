@@ -1,19 +1,19 @@
 -- Select the colorscheme
-local colorscheme = "github_dimmed"
+local colorscheme = 'rose-pine'
 
-require("tokyonight").setup({
-  style = "night",
-  sidebars = { "qf", "vista_kind", "terminal", "packer" },
+require('github-theme').setup({
+  dark_float = true,
+  sidebars = { 'qf', 'vista_kind', 'terminal', 'packer' },
 })
 
-require("kanagawa").setup({
+require('kanagawa').setup({
   globalStatus = true,
 })
 
-require("github-theme").setup({
-  dark_float = true,
-  sidebars = { "qf", "vista_kind", "terminal", "packer" },
+require('rose-pine').setup({
+  dark_variant = 'main',
+  disable_background = true,
 })
 
 -- Set colorscheme
-vim.cmd("colorscheme " .. colorscheme)
+vim.cmd.colorscheme(colorscheme)

@@ -1,7 +1,8 @@
-local status, indent_blankline = pcall(require, "indent-blankline")
+local status, indent_blankline = pcall(require, 'indent-blankline')
 if not status then return end
 
 indent_blankline.setup({
-  indent_blankline_char = "▏",
+  char = '┊',
   show_current_context = true,
+  show_trailing_blankline_indent = false,
 })

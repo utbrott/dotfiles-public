@@ -5,7 +5,18 @@ if not status then
 end
 
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "help", "javascript", "typescript", "tsx", "c", "cpp", "lua", "rust", "go", "latex"},
+  ensure_installed = {
+    "help",
+    "javascript",
+    "typescript",
+    "tsx",
+    "c",
+    "cpp",
+    "lua",
+    "rust",
+    "go",
+    "latex",
+  },
   sync_install = false,
   auto_install = true,
   highlight = {
