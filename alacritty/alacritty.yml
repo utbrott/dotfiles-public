@@ -71,6 +71,7 @@ font:
   # Style can be specified to pick a specific face.
   normal:
     family: Hack NF
+    # family: Hack Nerd Font # For Linux
     # family: Cascadia Code PL # Fallback, uncomment to use
     # family: "FiraCode NF"
     style: Regular
@@ -78,6 +79,7 @@ font:
   # The bold font face
   bold:
     family: Hack NF
+    # family: Hack Nerd Font # For Linux
     # family: Cascadia Code PL # Fallback, uncomment to use
     # family: "FiraCode NF"
     style: Bold
@@ -85,6 +87,7 @@ font:
   # The italic font face
   italic:
     family: Hack NF
+    # family: Hack Nerd Font # For Linux
     # family: Cascadia Code PL # Fallback, uncomment to use
     # family: "FiraCode NF"
     style: 'Regular Italic'
@@ -92,6 +95,7 @@ font:
   # The bold italic font face
   italic:
     family: Hack NF
+    # family: Hack Nerd Font # For Linux
     # family: Cascadia Code PL # Fallback, uncomment to use
     # family: "FiraCode NF"
     style: 'Bold Italic'
@@ -438,7 +442,8 @@ debug:
 #
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
+# Comment out for Linux 
 shell:
-  program: "pwsh -wd ~"
+  program: "pwsh -wd ~" 
 
 # vim: nospell
